@@ -1,40 +1,36 @@
-package com.myproject.core.models;
-
+package com.bln24.core.models;
+import static org.junit.jupiter.api.Assertions.*;
+import com.bln24.core.services.SocialMediaEmbedService;
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import io.wcm.testing.mock.aem.junit5.AemContext;
+import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import org.mockito.Mockito;
-
-public class SocialMediaModelTest {
-
-    private SocialMediaModel socialMediaModel;
-
-    @BeforeEach
-    public void setUp() {
-        socialMediaModel = new SocialMediaModel();
-    }
-
-    @Test
-    void testGetYouTubeUrl() {
-        String youtubeUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-        socialMediaModel.setYouTubeUrl(youtubeUrl);
-        
-        assertEquals(youtubeUrl, socialMediaModel.getYouTubeUrl());
-    }
-
-    @Test
-    void testGetFacebookUrl() {
-        String facebookUrl = "https://www.facebook.com/facebook";
-        socialMediaModel.setFacebookUrl(facebookUrl);
-        
-        assertEquals(facebookUrl, socialMediaModel.getFacebookUrl());
-    }
-
-    @Test
-    void testGetTwitterUrl() {
-        String twitterUrl = "https://twitter.com/Twitter";
-        socialMediaModel.setTwitterUrl(twitterUrl);
-        
-        assertEquals(twitterUrl, socialMediaModel.getTwitterUrl());
-    }
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import static org.mockito.Mockito.*;
+@ExtendWith(AemContextExtension.class)
+class SocialMediaModelTest {
+   private final AemContext context = new AemContext();
+   @InjectMocks
+   private SocialMediaModel model;
+   @Mock
+   private SocialMediaEmbedService embedService;
+   @BeforeEach
+   void setUp() {
+       MockitoAnnotations.openMocks(this);
+       context.addModelsForClasses(SocialMediaModel.class);
+       context.create().resource("/content/social", "embedUrl", "https://twitter.com/example");
+       Resource resource = context.resourceResolver().getResource("/content/social");
+       model = resource.adaptTo(SocialMediaModel.class);
+       when(embedService.getEmbedCode(anyString())).thenReturn("<blockquote>Mocked Embed</blockquote>");
+   }
+   @Test
+   void testValidEmbedUrl() {
+       assertNotNull(model);
+       assertTrue(model.isValid());
+       assertEquals("<blockquote>Mocked Embed</blockquote>", model.getEmbedCode());
+   }
 }

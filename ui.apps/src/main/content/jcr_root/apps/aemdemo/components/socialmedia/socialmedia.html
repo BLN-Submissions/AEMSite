@@ -1,27 +1,9 @@
-<div class="social-media-embed">
-    <!-- YouTube Embed -->
-    <#if socialMediaModel.youtubeUrl?has_content>
-        <div class="youtube-embed">
-            <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/${socialMediaModel.youtubeUrl?split('v=')[1]}" 
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </#if>
-
-    <!-- Facebook Embed -->
-    <#if socialMediaModel.facebookUrl?has_content>
-        <div class="facebook-embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=${socialMediaModel.facebookUrl}" 
-                    width="500" height="500" style="border:none; overflow:hidden" scrolling="no" frameborder="0" 
-                    allowTransparency="true" allow="encrypted-media"></iframe>
-        </div>
-    </#if>
-
-    <!-- Twitter Embed -->
-    <#if socialMediaModel.twitterUrl?has_content>
-        <div class="twitter-embed">
-            <a class="twitter-timeline" href="${socialMediaModel.twitterUrl}">Tweets by Twitter</a> 
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-    </#if>
+<div data-component="social-media">
+    <sly data-sly-use.model="com.bln24.core.models.SocialMediaModel"/>
+    <sly data-sly-test="${model.isValid}">
+       ${model.embedCode @ context='html'}
+</sly>
+    <sly data-sly-test="${!model.isValid}">
+        <p class="error">Invalid social media URL</p>
+    </sly>
 </div>

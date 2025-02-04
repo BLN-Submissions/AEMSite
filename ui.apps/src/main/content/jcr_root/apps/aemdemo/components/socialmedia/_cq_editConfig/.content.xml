@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="cq:EditConfig">
+    <cq:actions jcr:primaryType="cq:EditActions"
+               cq:delete="{Boolean}true"
+               cq:insert="{Boolean}true"
+               cq:edit="{Boolean}true"/>
+    <cq:dropTargets jcr:primaryType="cq:DropTargets">
+        <embedUrl jcr:primaryType="cq:DropTarget"
+                 accept="text/uri-list"
+                 propertyName="./embedUrl"/>
+    </cq:dropTargets>
+</jcr:root>

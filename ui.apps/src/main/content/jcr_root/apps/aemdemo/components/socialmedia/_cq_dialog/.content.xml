@@ -1,37 +1,45 @@
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
-          xmlns:granite="http://www.adobe.com/granite/ui/common"
-          xmlns:cq="http://www.day.com/jcr/cq/1.0"
-          jcr:primaryType="cq:Dialog"
-          title="Social Media Embed Component"
-          xtype="panel">
-
-    <!-- Dialog Tabs -->
-    <content jcr:primaryType="cq:TabPanel">
-
-        <!-- General Tab: Fields for YouTube, Facebook, and Twitter URLs -->
-        <items jcr:primaryType="cq:Panel" title="Social Media URLs">
-            <items jcr:primaryType="cq:Form">
-                <!-- YouTube URL -->
-                <youtubeUrl jcr:primaryType="cq:Widget" fieldLabel="YouTube URL" xtype="textfield"/>
-                
-                <!-- Facebook URL -->
-                <facebookUrl jcr:primaryType="cq:Widget" fieldLabel="Facebook URL" xtype="textfield"/>
-                
-                <!-- Twitter URL -->
-                <twitterUrl jcr:primaryType="cq:Widget" fieldLabel="Twitter URL" xtype="textfield"/>
-            </items>
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    cq:dialogMode="floating"
+    jcr:title="Social Media Embed">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <!-- Social Media URL -->
+            <socialMediaURL
+               jcr:primaryType="nt:unstructured"
+               sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+               fieldLabel="Social Media URL"
+               fieldDescription="Enter the URL of the social media post."
+               name="./embedUrl"
+               required="{Boolean}true"
+               validation="foundation.validation.url"/>
+            <!-- Embed Style -->
+            <embedStyle
+               jcr:primaryType="nt:unstructured"
+               sling:resourceType="granite/ui/components/coral/foundation/form/select"
+               fieldLabel="Embed Style"
+               name="./embedStyle">
+                <items jcr:primaryType="nt:unstructured">
+                    <standard jcr:primaryType="nt:unstructured"
+                             text="Standard"
+                             value="standard"/>
+                    <compact jcr:primaryType="nt:unstructured"
+                            text="Compact"
+                            value="compact"/>
+                </items>
+            </embedStyle>
+            <!-- Autoplay -->
+            <autoplay
+               jcr:primaryType="nt:unstructured"
+               sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+               fieldLabel="Autoplay Videos"
+               name="./autoplay"
+               text="Enable autoplay for embedded videos"/>
         </items>
-
-        <!-- Additional Tab: Fields for Title and Description -->
-        <items jcr:primaryType="cq:Panel" title="Additional Information">
-            <items jcr:primaryType="cq:Form">
-                <!-- Title -->
-                <title jcr:primaryType="cq:Widget" fieldLabel="Title" xtype="textfield"/>
-                
-                <!-- Description -->
-                <description jcr:primaryType="cq:Widget" fieldLabel="Description" xtype="textfield"/>
-            </items>
-        </items>
-        
     </content>
 </jcr:root>
