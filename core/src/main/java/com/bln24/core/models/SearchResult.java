@@ -1,20 +1,20 @@
 package com.bln24.core.model;
 
-public class SearchResult {
-
-    private String title;
-    private String url;
-
-    public SearchResult(String title, String url) {
+/**
+ Search Result.
+*/
+public static class SearchResult {
+    private final String title;
+    private final String snippet;
+    private final String link;
+    
+    public SearchResult(String title, String snippet, String link) {
         this.title = title;
-        this.url = url;
+        this.snippet = snippet;
+        this.link = link;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-}
+    
+    public String getTitle() { return title; }
+    public String getSnippet() { return snippet; }
+    public String getLink() { return link; }
+   }

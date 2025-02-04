@@ -1,0 +1,19 @@
+<div class="search-results">
+    <sly data-sly-use.model="com.bln24.core.models.SearchResultsModel"/>
+    <div class="search-bar">
+        <input type="text" id="search-query" placeholder="Enter search term..." />
+        <button id="search-button">Search Results</button>
+    </div>
+    <div id="search-results">
+        <sly data-sly-test="${model.hasResults}">
+            <ul>
+                <sly data-sly-repeat.result="${model.results}">
+                    <li>
+                        <a href="${result.link}" target="_blank">${result.title}</a>
+                        <p>${result.snippet}</p>
+                    </li>
+                </sly>
+            </ul>
+        </sly>
+    </div>
+</div>
