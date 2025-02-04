@@ -19,7 +19,7 @@ class SearchResultsModelTest {
    
    @InjectMocks
    private SearchResultsModel model;
-   
+
    @Mock
    private SearchService searchService;
    
