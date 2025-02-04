@@ -1,0 +1,22 @@
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" 
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Dialog"
+          jcr:title="Search Component Dialog"
+          cq:dialogMode="floating">
+    
+    <items>
+        <cq:Tabs jcr:primaryType="cq:Widget" title="Search Component Settings">
+            <items>
+                <cq:TabPanel jcr:primaryType="cq:Widget" title="General">
+                    <items>
+                        <textfield
+                            jcr:title="Search Query"
+                            name="./searchQuery"
+                            required="true"
+                            sling:resourceType="cq/gui/components/authoring/dialog/field/textfield" />
+                    </items>
+                </cq:TabPanel>
+            </items>
+        </cq:Tabs>
+    </items>
+</jcr:root>
