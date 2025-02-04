@@ -4,7 +4,7 @@
     xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:primaryType="cq:ClientLibraryFolder"
-    categories="[aemdemo.components.socialmedia]"
+    categories="[aemdemo.components.searchresults]"
     dependencies="[cq.authoring.dialog]"
     serializationMode="xml"
     allowProxy="{Boolean}true"/>
