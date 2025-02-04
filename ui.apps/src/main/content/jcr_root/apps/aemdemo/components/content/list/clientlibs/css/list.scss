@@ -1,0 +1,23 @@
+.default {
+    list-style-type: disc;
+ }
+ .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+ }
+ .grid li {
+    flex: 1 1 calc(33.333% - 10px);
+    border: 1px solid #ccc;
+    padding: 10px;
+ }
+ .carousel {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+ }
+ .carousel li {
+    min-width: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
+ }

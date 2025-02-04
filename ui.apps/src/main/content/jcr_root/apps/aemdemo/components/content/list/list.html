@@ -1,0 +1,6 @@
+<sly data-sly-use.model="com.bln24.core.models.ListModel"/>
+<ul class="${model.listStyle}">
+    <sly data-sly-list.item="${model.listItems}">
+        <li>${item}</li>
+    </sly>
+</ul>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+         jcr:primaryType="cq:Dialog"
+         cq:dialogMode="floating"
+         jcr:title="List Component Configuration">
+    <content jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <listSource jcr:primaryType="nt:unstructured"
+                       sling:resourceType="granite/ui/components/coral/foundation/select"
+                       fieldLabel="List Source"
+                       name="./listSource">
+                <items jcr:primaryType="nt:unstructured">
+                    <static jcr:primaryType="nt:unstructured" text="Static List" value="static"/>
+                    <dynamic jcr:primaryType="nt:unstructured" text="Dynamic List" value="dynamic"/>
+                </items>
+            </listSource>
+            <listItems jcr:primaryType="nt:unstructured"
+                      sling:resourceType="granite/ui/components/coral/foundation/multifield"
+                      fieldLabel="Static List Items"
+                      name="./listItems"
+                      composite="{Boolean}true">
+                <field jcr:primaryType="nt:unstructured"
+                      sling:resourceType="granite/ui/components/coral/foundation/textfield"
+                      name="./itemText"
+                      fieldLabel="Item Text"/>
+            </listItems>
+            <listStyle jcr:primaryType="nt:unstructured"
+                      sling:resourceType="granite/ui/components/coral/foundation/select"
+                      fieldLabel="List Style"
+                      name="./listStyle">
+                <items jcr:primaryType="nt:unstructured">
+                    <default jcr:primaryType="nt:unstructured" text="Default" value="default"/>
+                    <grid jcr:primaryType="nt:unstructured" text="Grid" value="grid"/>
+                    <carousel jcr:primaryType="nt:unstructured" text="Carousel" value="carousel"/>
+                </items>
+            </listStyle>
+        </items>
+    </content>
+</jcr:root>
