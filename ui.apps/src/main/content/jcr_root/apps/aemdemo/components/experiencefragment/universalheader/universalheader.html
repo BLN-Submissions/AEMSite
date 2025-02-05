@@ -1,0 +1,17 @@
+<sly data-sly-use.model="com.bln24.core.models.UniversalHeaderModel"/>
+<header class="universal-header">
+    <div class="logo">
+        <a href="${model.logoLink}">
+            <img src="${model.logoPath}">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <sly data-sly-list.navItem="${model.navigationItems}">
+                <li>
+                    <a href="${navItem.link}" class="${navItem.active ? 'active' : ''}">${navItem.label}</a>
+                </li>
+            </sly>
+        </ul>
+    </nav>    
+</header>
