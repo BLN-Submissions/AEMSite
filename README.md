@@ -6,14 +6,14 @@ This is a project template for AEM-based applications. It is intended as a best-
 
 The main parts of the template are:
 
-* [core:](core/README.md) Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* [it.tests:](it.tests/README.md) Java based integration tests
-* [ui.apps:](ui.apps/README.md) contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
-* [ui.content:](ui.content/README.md) contains sample content using the components from the ui.apps
+* [core:] Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
+* [it.tests:] Java based integration tests
+* [ui.apps:] contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
+* [ui.content:] contains sample content using the components from the ui.apps
 * ui.config: contains runmode specific OSGi configs for the project
-* [ui.frontend:](ui.frontend.general/README.md) an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
-* [ui.tests.cypress:](ui.tests.cypress/README.md) Cypress based UI tests
-* [ui.tests.wdio:](ui.tests.wdio/README.md) Selenium based UI tests
+* [ui.frontend:] an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
+* [ui.tests.cypress:] Cypress based UI tests
+* [ui.tests.wdio:] Selenium based UI tests
 * all: a single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
 * analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
 
